@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 import pymongo
-from scrapy.conf import settings
+from scrapy.utils.project import get_project_settings
+settings = get_project_settings()
+
+
 # Define your item pipelines here
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
@@ -30,7 +33,7 @@ class TaobaoSpiderPipeline(object):
             print('商家地址\t', address)
             print('评论数量\t', comment)
             print('------------------------------\n')
-            postItem = dict(商品标题=title,商品链接=link,商品原价=price,商品现价=now_price,商家地址=address,评论数量=comment)
+            postItem = dict(商品标题=title, 商品链接=link, 商品原价=price, 商品现价=now_price, 商家地址=address, 评论数量=comment)
             self.coll.insert(postItem)
             return item
         except Exception as err:

@@ -4,6 +4,9 @@
 #
 # See documentation in:
 # http://doc.scrapy.org/en/latest/topics/spider-middleware.html
+import random
+
+from scrapy import signals
 
 
 class TaobaoSpiderSpiderMiddleware(object):
